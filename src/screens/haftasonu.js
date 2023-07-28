@@ -12,20 +12,14 @@ function HaftasonuScreen({navigation}) {
     <SafeAreaView style={{backgroundColor:"#FFF8EA" ,flex: 1}}>
       <ImageBackground source={require("../asset/background.png")} resizeMode="contain" style={{flex:1,}}>
 
-        <View style={{justifyContent:'space-between', flexDirection:'row'}}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()} >
+        <View style={{justifyContent:'space-between', flexDirection:'row', height: 60}}>
 
-          <View style={{borderColor:'white', borderWidth:2, borderBottomEndRadius:95, borderBottomStartRadius: 50,
-            height: 88, width:137, backgroundColor:'white', justifyContent:'center', alignItems: 'center'}}>
-              <Image source={require("../asset/soltab.png")} style={{width: 63, height: 35}}></Image>
-
-          </View>
-        </TouchableOpacity>
-
-        <View style={{padding: 30}}>
+          <TouchableOpacity onPress={()=> navigation.goBack()} style={{borderColor:'white', borderWidth:2, borderBottomEndRadius:95, borderBottomStartRadius: 70,
+            height: "100%", width:"30%", backgroundColor:'white', justifyContent:'center', alignItems: 'center'}}>
+            <Image source={require("../asset/soltab.png")} resizeMode={"contain"} style={{width: "80%", height: "70%"}}></Image>
+          </TouchableOpacity>
+          <View style={{padding: "5%"}}>
             <Image source={require("../asset/tab.png")}></Image>
-
           </View>
         </View>
 
