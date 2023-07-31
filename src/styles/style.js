@@ -19,7 +19,7 @@ export const style = StyleSheet.create({
   seperator: {
     borderWidth: 0.5,
     borderColor:'black',
-    margin:10,
+    margin:5,
   },
   listId: {
     justifyContent:"center",
@@ -39,7 +39,7 @@ export const style = StyleSheet.create({
   title: {
     fontSize: 16,
     textAlign:"center",
-    marginTop: 20
+    marginTop: 10
   },
   titleDescription: {
     fontSize: 24,
@@ -47,7 +47,7 @@ export const style = StyleSheet.create({
     marginVertical:5,
     marginHorizontal:windowWidth/15,
     fontWeight: 500,
-    height: windowWidth/5
+    height: "15%"
   },
   mainDescription: {
     fontSize: 20,
@@ -60,7 +60,7 @@ export const style = StyleSheet.create({
     fontSize: 16,
     textAlign:"center",
     fontWeight:300,
-    marginBottom: 30
+    marginBottom: 10
   },
   showButton: {
     width: windowWidth/2,
@@ -82,7 +82,7 @@ export const style = StyleSheet.create({
     alignSelf:"center",
   },
   headImage: {
-    width: windowWidth/1.4,
+    width: "80%",
     height: windowHeight/5.4,
     justifyContent:"center",
     alignSelf: "center"
@@ -110,7 +110,7 @@ export const style = StyleSheet.create({
     position: "absolute"
   },
   advert: {
-    width: windowWidth/1.4,
-    height: windowWidth/1.5,
+    width: "90%",
+    height: "40%",
   }
 })

@@ -64,7 +64,7 @@ function Haftasonulist() {
               </View>
           }
           {
-            item.type === "news" && cover != null ?
+            item.type === "news" && cover != null &&
               <View style={{flex:1, justifyContent:"center"}}>
                 <FastImage source={cover} style={{flex:1}}>
                   <LinearGradient colors={['transparent', 'rgba(0,0,0,0.6)']} style={{width: "100%", height:"100%", top: 0, position: "absolute"}}/>
@@ -86,19 +86,19 @@ function Haftasonulist() {
                     </TouchableOpacity>
                   </View>
                 </FastImage>
-              </View> : null
+              </View>
           }
           {
-            item.type === "ads" && cover != null ?
-              <ImageBackground source={cover} style={{flex:1, marginHorizontal:10}}/>: null
+            item.type === "ads" && cover != null &&
+              <ImageBackground source={cover} style={{flex:1, marginHorizontal:10}}/>
           }
           {
-            item.type === "ads" && cover === null ?
+            item.type === "ads" && cover === null &&
               <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
                 <Image source={firstadImage} resizeMode={"contain"} style={style.advert}></Image>
                 <Text style={{fontSize: 16, marginVertical: 10}}>{item.lineOptions.title}</Text>
                 <Image source={secondadImage} resizeMode={"contain"} style={style.advert}></Image>
-              </View> : null
+              </View>
           }
         </View>
         <View style={style.listId}>
