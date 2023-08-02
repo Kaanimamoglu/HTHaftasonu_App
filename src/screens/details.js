@@ -1,5 +1,4 @@
 import {
-  Image,
   SafeAreaView,
   Text,
   TouchableOpacity,
@@ -17,6 +16,7 @@ import { useEffect, useState } from "react";
 import details from "../data/details.json";
 import { imageMapping } from "../data/constant/utils";
 import { style } from "../styles/style";
+import FastImage from "react-native-fast-image";
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -66,10 +66,10 @@ function DetailsScreen(props) {
     return(
       <View>
         <View style={{flex: 1, marginVertical: 10, flexDirection: 'row' , height: windowHeight/4}}>
-          <Image source={firstIg} resizeMode={"cover"} style={{width: windowWidth/1.2, height:windowHeight/4, marginRight:10}}/>
-          <Image source={secondIg} resizeMode={"cover"} style={{width: windowWidth/1.2, height:windowHeight/4, marginRight:10}}/>
-          <Image source={thirdIg} resizeMode={"cover"} style={{width: windowWidth/1.2, height:windowHeight/4, marginRight:10}}/>
-          <Image source={fourthIg} resizeMode={"cover"} style={{width: windowWidth/1.2, height:windowHeight/4}}/>
+          <FastImage source={firstIg} resizeMode={"cover"} style={{width: windowWidth/1.2, height:windowHeight/4, marginRight:10}}/>
+          <FastImage source={secondIg} resizeMode={"cover"} style={{width: windowWidth/1.2, height:windowHeight/4, marginRight:10}}/>
+          <FastImage source={thirdIg} resizeMode={"cover"} style={{width: windowWidth/1.2, height:windowHeight/4, marginRight:10}}/>
+          <FastImage source={fourthIg} resizeMode={"cover"} style={{width: windowWidth/1.2, height:windowHeight/4}}/>
         </View>
       </View>
 
@@ -84,13 +84,13 @@ function DetailsScreen(props) {
         <ScrollView>
           {jsonData &&
             <View style={{flex:1, justifyContent:"center", marginHorizontal: windowWidth/15}}>
-              <Text style={{fontSize: 25, fontWeight:"bold", marginTop: 20}}>{jsonData.title}</Text>
-              <Text style={{fontSize: 18, fontWeight: 300, marginVertical: 10}}>{jsonData.desc}</Text>
-              <Text style={{fontSize: 12, fontWeight: 200, marginVertical: 5}}>{jsonData.dateTime} -
+              <Text style={{fontSize: 25,  marginTop: 20}}>{jsonData.title}</Text>
+              <Text style={{fontSize: 18,  marginVertical: 10}}>{jsonData.desc}</Text>
+              <Text style={{fontSize: 12,  marginVertical: 5}}>{jsonData.dateTime} -
                 {jsonData.time} | Güncelleme: {jsonData.updatedTime} - {jsonData.updatedDateTime}</Text>
               <View style = {{borderWidth: 1, borderColor:'#DEDEDE', marginVertical:5, borderStyle:"dashed"}}/>
               <View style={{flexDirection:"row", marginVertical: 5}}>
-                <Image source={require("../asset/dha.png")} resizeMode={"center"} style={{ width:windowWidth/8, height: windowHeight/18,
+                <FastImage source={require("../asset/dha.png")} resizeMode={"contain"} style={{ width:windowWidth/8, height: windowHeight/18,
                   borderRadius:25,borderWidth:2,borderColor: "white", backgroundColor: "white",justifyContent:"center", alignItems:"center"}}/>
                 <View style={{flexDirection:"column"}}>
                   <Text style={{marginTop:10, fontWeight: "bold", marginHorizontal:10}}>{jsonData.writerOptions.writerName}</Text>
@@ -104,7 +104,7 @@ function DetailsScreen(props) {
                   data={dataArray}
                   renderItem={ImageList}
                   keyExtractor={item => item.id *10000}/>
-              <Text style={{width: windowWidth/1.3, fontWeight: 300, marginVertical:10, fontSize:12}}>{jsonData.imageOptions.imageDetails}</Text>
+              <Text style={{width: windowWidth/1.3,  marginVertical:10, fontSize:12}}>{jsonData.imageOptions.imageDetails}</Text>
               <View style = {{borderWidth: 1, borderColor:'#707070', marginVertical:5, borderStyle:"dashed"}}/>
                 <FlatList
                   showsHorizontalScrollIndicator={false}
@@ -127,7 +127,7 @@ function DetailsScreen(props) {
               <View style={{backgroundColor:"#F1F1F1", marginVertical: windowHeight/25}}>
                 <View style={{marginHorizontal: windowWidth/20, marginVertical: windowHeight/40}}>
                   <Text style={{fontSize:24, fontWeight:"bold"}}>YORUMLAR</Text>
-                  <Text style={{fontSize:14, fontWeight:300}}>Yorum kurallarını okumak için tıklayınız!</Text>
+                  <Text style={{fontSize:14, }}>Yorum kurallarını okumak için tıklayınız!</Text>
                 </View>
                 <View style = {{borderWidth: 0.4, borderColor:'gray'}}/>
                 <View style={{marginHorizontal: windowWidth/20, marginVertical: windowHeight/40}}>
@@ -150,7 +150,7 @@ function DetailsScreen(props) {
                         </View>
                         <View style={{flexDirection:"column", width:windowWidth/2}}>
                           <Text style={{marginLeft:10, fontWeight:"bold" }}>{yorum.commentHeader}</Text>
-                          <Text style={{marginLeft:10, fontWeight: 300}}>{yorum.commentText}</Text>
+                          <Text style={{marginLeft:10, }}>{yorum.commentText}</Text>
                         </View>
                       </View>
                       : commentList == true &&
@@ -160,21 +160,47 @@ function DetailsScreen(props) {
                         </View>
                         <View style={{flexDirection:"column", width:windowWidth/2}}>
                           <Text style={{marginLeft:10, fontWeight:"bold" }}>{yorum.commentHeader}</Text>
-                          <Text style={{marginLeft:10, fontWeight: 300}}>{yorum.commentText}</Text>
+                          <Text style={{marginLeft:10, }}>{yorum.commentText}</Text>
                         </View>
                       </View> )
                     }
                   </View>
                 </View>
 
-                <View style={{flex:1, position:"relative", margin: -30, alignSelf: "center"}}>
+                <View style={{flex:1, position:"relative", margin: -20, alignSelf: "center"}}>
                   <TouchableOpacity onPress={() => handleCommentClicker()} style={{ width:windowWidth/2, height: windowHeight/18,position:"relative",
                     borderWidth:2,borderColor: "#DEDEDE", backgroundColor: "white", justifyContent:"center", alignItems:"center"}}>
                     <Text style={{textAlign:"center", fontWeight:"bold"}}>TÜM YORUMLARI GÖSTER</Text>
                   </TouchableOpacity>
                 </View>
+
+              </View>
+              <View style={{flex:1, marginTop: 20}}>
+                <View style = {{borderWidth: 0.4, borderColor:'gray', marginBottom: 20}}/>
+                <Text style={{fontSize:24, fontWeight:"bold"}}>BAKMADAN GEÇME</Text>
+                <View style = {{borderWidth: 0.4, borderColor:'gray', marginTop: 20}}/>
               </View>
 
+              <View style={{flexDirection:"row", marginVertical: 10}}>
+                <FastImage source={imageMapping.boga} resizeMode={"cover"} style={{aspectRatio:16/9, marginRight:10}}/>
+                <Text style={{width: windowWidth/1.8,  marginVertical:10, fontSize:12}}>{jsonData.imageOptions.imageDetails}</Text>
+              </View>
+              <View style = {{borderWidth: 0.4, borderColor:'gainsboro'}}/>
+              <View style={{flexDirection:"row", marginVertical: 10}}>
+                <FastImage source={imageMapping.kaan} resizeMode={"cover"} style={{aspectRatio:16/9, marginRight:10}}/>
+                <Text style={{width: windowWidth/1.8,  marginVertical:10, fontSize:12}}>{jsonData.imageOptions.imageDetails}</Text>
+              </View>
+              <View style = {{borderWidth: 0.4, borderColor:'gainsboro'}}/>
+              <View style={{flexDirection:"row", marginVertical: 10}}>
+                <FastImage source={imageMapping.party} resizeMode={"cover"} style={{aspectRatio:16/9, marginRight:10}}/>
+                <Text style={{width: windowWidth/1.8,  marginVertical:10, fontSize:12}}>{jsonData.imageOptions.imageDetails}</Text>
+              </View>
+              <View style = {{borderWidth: 0.4, borderColor:'gainsboro'}}/>
+              <View style={{flexDirection:"row", marginVertical: 10}}>
+                <FastImage source={imageMapping.reklam1} resizeMode={"cover"} style={{aspectRatio:16/9, marginRight:10}}/>
+                <Text style={{width: windowWidth/1.8,  marginVertical:10, fontSize:12}}>{jsonData.imageOptions.imageDetails}</Text>
+              </View>
+              <View style = {{borderWidth: 0.4, borderColor:'gainsboro'}}/>
             </View>
           }
       </ScrollView>

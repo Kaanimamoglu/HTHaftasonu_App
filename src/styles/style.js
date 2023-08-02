@@ -46,20 +46,19 @@ export const style = StyleSheet.create({
     textAlign:"center",
     marginVertical:5,
     marginHorizontal:windowWidth/15,
-    fontWeight: 500,
     height: "15%"
   },
   mainDescription: {
     fontSize: 20,
     textAlign:"center",
-    fontWeight:300,
+
     marginHorizontal:windowWidth/15,
     height: windowHeight/6
   },
   date: {
     fontSize: 16,
     textAlign:"center",
-    fontWeight:300,
+
     marginBottom: 10
   },
   showButton: {
@@ -90,7 +89,7 @@ export const style = StyleSheet.create({
   buttonText: {
     fontSize:20,
     textAlign:"center",
-    fontWeight:400
+
   },
   video: {
     width: windowWidth/12,
@@ -107,10 +106,16 @@ export const style = StyleSheet.create({
     justifyContent:'flex-end',
     width:"100%",
     alignItems:"center",
-    position: "absolute"
   },
   advert: {
     width: "90%",
     height: "40%",
-  }
+  },
+  videoTitleDescription: {
+    fontSize: 24,
+    textAlign:"center",
+    marginVertical:5,
+    marginHorizontal:windowWidth/15,
+    height: "30%"
+  },
 })

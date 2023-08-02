@@ -79,7 +79,7 @@ function Haftasonulist({navigation}) {
                 <View style={{flex:1, justifyContent:"flex-end", marginBottom: "10%"}}>
                   <Text style={[style.title, {color: "white"}]}>{item.lineOptions.title}</Text>
                   <View style = {[style.seperator, {marginHorizontal: windowWidth/3.4, borderColor: "white"}]}/>
-                  <Text style={[style.titleDescription, {color: "white"}]}>{item.lineOptions.desc}</Text>
+                  <Text style={[style.videoTitleDescription, {color: "white"}]}>{item.lineOptions.desc}</Text>
 
                   <TouchableOpacity onPress={() => {
                     navigation.navigate("Detail", item.id);
