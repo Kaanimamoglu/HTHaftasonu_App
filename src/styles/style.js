@@ -51,15 +51,13 @@ export const style = StyleSheet.create({
   mainDescription: {
     fontSize: 20,
     textAlign:"center",
-
     marginHorizontal:windowWidth/15,
-    height: windowHeight/6
+    height: windowHeight/5.9
   },
   date: {
     fontSize: 16,
     textAlign:"center",
-
-    marginBottom: 10
+    marginVertical: 10
   },
   showButton: {
     width: windowWidth/2,
@@ -116,6 +114,23 @@ export const style = StyleSheet.create({
     textAlign:"center",
     marginVertical:5,
     marginHorizontal:windowWidth/15,
-    height: "30%"
+    height: "40%"
   },
+  footerButton: {
+    width:windowWidth/5,
+    height: 60,
+    justifyContent:"center",
+    alignItems:"center"
+  },
+  headerButton: {
+    borderColor:'white',
+    borderWidth:2,
+    borderBottomEndRadius:95,
+    borderBottomStartRadius: 70,
+    height: "100%",
+    width:"30%",
+    backgroundColor:'white',
+    justifyContent:'center',
+    alignItems: 'center'
+  }
 })
